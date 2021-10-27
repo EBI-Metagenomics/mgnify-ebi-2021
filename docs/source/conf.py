@@ -44,9 +44,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'mgnify-ebi-2021'
+project = u'Metagenomics bioinformatics (Virtual) - 2021'
 copyright = u'2021, EMBL-EBI'
-author = u'MGnify'
+author = u'Microbiome Informatics Team - EMBL-EBI'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

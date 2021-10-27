@@ -1,4 +1,4 @@
-EBI - Metagenomics bioinformatics (Virtual) - 2020
+EBI - Metagenomics bioinformatics (Virtual) - 2021
 ==================================================
 
 These are the materials that will be used for the "Metagenomics bioinformatics (Virtual)" workshop.
