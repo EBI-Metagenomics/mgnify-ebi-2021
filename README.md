@@ -9,11 +9,18 @@ The virtually-delivered content will involve participants learning via pre-recor
 For more information about please refer to [Metagenomics bioinformatics (Virtual) - 2021](https://www.ebi.ac.uk/training/events/metagenomics-bioinformatics-virtual-2021/)
 
 ## Preparing the interactive notebooks
+
+We will have to install the dependencies to run the notebooks. To do so, we will use [miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
 Open a Terminal.
+
 ```shell
-pip install -r requirements.txt
-ipython kernel install --name "mgnify-ebi-2021" --user
-jupyter-lab course.jupyterlab-workspace
+(base) conda create -n mgnify-ebi-2021 python=3.9
+(base) conda activate mgnify-ebi-2021
+
+(mgnify-ebi-2021) pip install -r requirements.txt
+(mgnify-ebi-2021) ipython kernel install --name "mgnify-ebi-2021" --user
+(mgnify-ebi-2021) jupyter-lab course.jupyterlab-workspace
 ```
 
 Jupyter should be using the "mgnify-ebi-2021" kernel, so that the packages are available.

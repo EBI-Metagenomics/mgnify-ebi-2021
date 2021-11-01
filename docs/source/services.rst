@@ -20,6 +20,7 @@ In the presentation we will cover:
 - Functional characterisation
 - Pathways/systems
 - Other MGnify services
+- API Overview
 
 MGnify hands-on exercises
 ##################################
@@ -119,7 +120,7 @@ Now we will look at some assembly data that has been analysed by MGnify.
 |info| There are lots of different visualisation options available within the contig viewer. Take some time now to investigate the various options, and play about with it by looking at a few different contigs and the anotations they contain.
 
 MGnify sequence search
-**************************
+**********************
 
 Now we will have a look at the database of proteins identified by MGnify. 
 
@@ -142,4 +143,5 @@ FLALGLGAFGKESLAPWAAFLAAAGLRALLVAVGQWQG
 
 |question| Looking at the samples included in the significant results, does it make sense that the example sequence was from this protein family? IPR032796 - Polysulfide reductase.
 
-
+API
+***
