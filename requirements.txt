@@ -2,3 +2,4 @@ sphinx
 jupyterlab==3.2.1
 sourmash==4.2.2
 jsonapi-client==0.9.9
+pandas==1.3.4
