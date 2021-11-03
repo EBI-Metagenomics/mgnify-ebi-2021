@@ -14,10 +14,9 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-
+   
+   qc
    assembly
    services
    mag
-   qc
-   api
    license

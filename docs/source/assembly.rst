@@ -107,7 +107,7 @@ In the the Bandage GUI perform the following
 
     Select File -> Load graph
 
-    Navigate to Home -> Data -> Assembly -> files -> assembly.bak and open the file assembly_graph_after_simplification.gfa
+    Navigate to Home -> training -> Data -> Assembly -> files -> assembly.bak and open the file assembly_graph_after_simplification.gfa
 
 Once loaded, you need to draw the graph. To do so, under the “Graph
 drawing” panel on the left side perform the following:
@@ -136,7 +136,7 @@ To do so, go to the 'BLAST' panel on the left side of the GUI.
     
     Step 2 - Select 'build Blast database'
     
-    Step 3 - Load from FASTA file. Navigate to the genome folder: Home -> Data -> Assembly -> files -> genome and select GCA_000164695.fasta
+    Step 3 - Load from FASTA file. Navigate to the genome folder: Home -> training -> Data -> Assembly -> files -> genome and select GCA_000164695.fasta
     
     Step 4 - Modify the BLAST filters to 95% identity
     
