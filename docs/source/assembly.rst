@@ -136,7 +136,7 @@ To do so, go to the 'BLAST' panel on the left side of the GUI.
     
     Step 2 - Select 'build Blast database'
     
-    Step 3 - Load from FASTA file. Navigate to the genome folder: Home -> Data -> Assembly -> files -> genome and select GCA_000164695.fasta
+    Step 3 - Load from FASTA file. Navigate to the genome folder: Home -> training -> Data -> Assembly -> files -> genome and select GCA_000164695.fasta
     
     Step 4 - Modify the BLAST filters to 95% identity
     
