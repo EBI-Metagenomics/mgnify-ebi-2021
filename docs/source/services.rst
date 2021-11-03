@@ -47,7 +47,7 @@ From the MGnify front page (https://www.ebi.ac.uk/metagenomics/) you can see var
 |question| Follow the link to the BioSamples record, can you find any more information about the location of the sample?
 
 |action| From the tabs in the header bar, select **Text search**, and then select **Samples** below the search box. There are a number of metadata fields available to allow you to filter for a sample of interest to you. Not all are relevant to all samples. 
-Within the hierarchy of biomes, navigate to environmental>aquatic>lentic. You should see 57 samples. Now select the depth filter.
+Within the hierarchy of biomes, navigate to environmental>aquatic>lentic. You should see 92 samples. Now select the depth filter.
 
 |question| How many lentic samples have depth data associated with them?
 
