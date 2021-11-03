@@ -181,7 +181,7 @@ To do this, run the following command:
 
 .. code-block:: bash
 
-    nw_rename checkm_output/storage/tree/concatenated.tre rename_list.tab > renamed.tree
+    nw_rename checkm_output.bak/storage/tree/concatenated.tre assemblies/rename_list.tab > renamed.tree
 
 **Visualising the phylogenetic tree**
 
@@ -193,7 +193,7 @@ of Life** (**iTOL**): http://itol.embl.de/index.shtml
 reformat the tree with **FigTree**
 (http://tree.bio.ed.ac.uk/software/figtree/).
 
-In order to open **FigTree** navigate to: **Home -> Data -> Binning -> FigTree_v1.4.4 -> lib -> figtree.jar**
+In order to open **FigTree** open a new terminal window (without docker) and type ``figtree``
 
 |image3|\  Open the **renamed.tree** file with **FigTree** (**File -> Open**) and then
 select from the toolbar **File -> Export Trees**. In the **Tree file
