@@ -3,3 +3,6 @@ jupyterlab==3.2.1
 sourmash==4.2.2
 jsonapi-client==0.9.9
 pandas==1.3.4
+biopython==1.79
+requests==2.26.0
+matplotlib==3.4.3
