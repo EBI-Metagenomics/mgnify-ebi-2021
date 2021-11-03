@@ -62,6 +62,8 @@ repeat the process, you would run the following commands:
 
 .. code-block:: bash
 
+    cd /opt/data/assemblies/
+    
     # index the contigs file that was produced by metaSPAdes:
     bwa index contigs.fasta
 
