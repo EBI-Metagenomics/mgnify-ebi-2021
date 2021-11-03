@@ -107,7 +107,7 @@ In the the Bandage GUI perform the following
 
     Select File -> Load graph
 
-    Navigate to Home -> Data -> Assembly -> files -> assembly.bak and open the file assembly_graph_after_simplification.gfa
+    Navigate to Home -> training -> Data -> Assembly -> files -> assembly.bak and open the file assembly_graph_after_simplification.gfa
 
 Once loaded, you need to draw the graph. To do so, under the “Graph
 drawing” panel on the left side perform the following:
