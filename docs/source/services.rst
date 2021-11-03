@@ -145,3 +145,7 @@ FLALGLGAFGKESLAPWAAFLAAAGLRALLVAVGQWQG
 
 API
 ***
+
+An `API <https://en.wikipedia.org/wiki/API>`_ ("Application programming interface") is how your scripts (e.g. Python or R) can talk to the MGnify database.
+
+For this section of the practical session we will use a Jupyter Notebook, please follow this link. # TODO: add link
