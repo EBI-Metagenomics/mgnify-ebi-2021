@@ -181,7 +181,7 @@ To do this, run the following command:
 
 .. code-block:: bash
 
-    nw_rename checkm_output.bak/storage/tree/concatenated.tre assemblies/rename_list.tab > renamed.tree
+    nw_rename checkm_answers/concatenated.tre assemblies/rename_list.tab > renamed.tree
 
 **Visualising the phylogenetic tree**
 
