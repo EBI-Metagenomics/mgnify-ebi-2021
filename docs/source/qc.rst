@@ -20,7 +20,7 @@ For this tutorial you will need to move into the working directory. It is import
 
     cd /home/training/Data/Quality/files
     chmod -R 777 /home/training/Data/Quality
-    **export DATADIR=/home/training/Data/Quality/files**
+    export DATADIR=/home/training/Data/Quality/files
     xhost +
 
 You will see the message "access control disabled, clients can connect from any host"
@@ -40,13 +40,16 @@ host decontamination. 
 
 |image2|\  Generate a directory of the fastqc results
 
+.. code-block:: bash
+
     mkdir fastqc_results
     fastqc oral_human_example_1_splitaa.fastq.gz
     fastqc oral_human_example_2_splitaa.fastq.gz
     mv $DATADIR/*.zip $DATADIR/fastqc_results
     mv $DATADIR/*.html $DATADIR/fastqc_results
 
-|image2|\  Now on your computer on the left hand bar, select the folder icon called 'Files'
+|image2|\  Now on your computer on the left hand bar, select the folder icon called 'Files'.
+
 Navigate to Home --> Data --> Quality --> files --> fastqc_results
 
     Click on file 'oral_human_example_1_splitaa_fastqc.html' which should open in the browser
@@ -110,7 +113,8 @@ In this case, we provide the folder containing the fastqc results to
 multiqc and the -o allows us to set the output directory for this
 summarised report.
 
-|image2|\  Now on your computer on the left hand bar, select the folder icon called 'Files'
+|image2|\  Now on your computer on the left hand bar, select the folder icon called 'Files'.
+
 Navigate to Home --> Data --> Quality --> files --> multiqc_results
 
   Click on file 'multiqc_report.html' which should open in the browser
@@ -118,7 +122,7 @@ Navigate to Home --> Data --> Quality --> files --> multiqc_results
 |image6|\
 
 |image2|\  Scroll down through the report. The sequence quality
-histograms show the following results from each file as two separate
+histograms show the above results from each file as two separate
 lines. The 'Status Checks’ show a matrix of which samples passed check
 and which ones have problems. 
 
