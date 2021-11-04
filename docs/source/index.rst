@@ -1,3 +1,5 @@
+.. include:: partials/substitutions.rst
+
 EBI - Metagenomics bioinformatics (Virtual) - 2021
 ==================================================
 
@@ -19,4 +21,5 @@ Contents:
    assembly
    services
    mag
+   mag-catalogues
    license
