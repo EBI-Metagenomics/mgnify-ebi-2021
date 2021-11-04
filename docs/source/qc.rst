@@ -2,72 +2,71 @@
 Quality control and filtering of the raw sequence files
 *******************************************************
 
-Prerequisites
----------------
+Running this practical locally
+-------------------------------
 
-For this tutorial you will need to move into the working directory. All the required files should be here, or can be
-downloaded using the tarball from http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_courses/ebi_2020/
+There are no prerequisites to run this practical for the course. All the data and tools have been downloaded and installed on the VMs.
+**Skip to the next section "Quality control and filtering of the raw sequence files"**
 
-.. code-block:: bash
+To run this practical locally after the course, the files can be downloaded using the tarball from
+http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_courses/ebi_2020/quality.tar.gz
 
-    cd /home/training/Data/Quality/files
-    chmod -R 777 /home/training/Data/Quality
-    export DATADIR=/home/training/Data/Quality/files
-    xhost +
-
-Finally, start the docker container in the following way:
+The docker container has all the tools required and can be started in the following way:
 
 .. code-block:: bash
 
+   export DATADIR={path_to_downloaded_files}
    docker run --rm -it  -e DISPLAY=$DISPLAY  -v $DATADIR:/opt/data -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e DISPLAY=unix$DISPLAY microbiomeinformatics/mgnify-ebi-2020-qc-asssembly
 
+**Ensure variable DATADIR is set. This is used to mount downloaded data into ``/opt/data`` in the docker container.**
+From here on - replace $DATADIR with /opt/data in all commands.
 
 .. note::
    It's possible that the docker image is not available in dockerhub.
    In that case you can build the container using the `Dockerfile <https://github.com/EBI-Metagenomics/mgnify-ebi-2020/blob/master/docs/source/data/qc-assembly/Dockerfile>`_
-   
+
    To build the container, download the Dockerfile and run "docker build -t microbiomeinformatics/mgnify-ebi-2020-qc-asssembly ." in the folder that contains the Dockerfile.
 
 
 Quality control and filtering of the raw sequence files
 -----------------------------------------------------------------
 
+For this tutorial you will need to move into the working directory. It is important to set the variable DATADIR as stated.
+
+.. code-block:: bash
+
+    cd /home/training/Data/Quality/files
+    chmod -R 777 /home/training/Data/Quality
+    **export DATADIR=/home/training/Data/Quality/files**
+    xhost +
+
+You will see the message "access control disabled, clients can connect from any host"
+
 |image1|\ Learning Objectives - in the following exercises you will learn
 how to check on the quality of short read sequences: identify the
-presence of adaptor sequences, remove both adaptors and low quality
+presence of adaptor sequences, remove both adapters and low quality
 sequences. You will also learn how to construct a reference database for
 host decontamination. 
 
-|image2|\  First go to your working area, the data that you downloaded
-has been mounted in ``/opt/data`` in the docker container.
+|image1|\  Here you should see the contents of the working directory. These are the files we will use for the practical.
 
 .. code-block:: bash
 
-   cd /opt/data
-   ls
+    ls $DATADIR
 
-|image1|\  Here you should see the same contents as you had in the working directory.
-As we write into this directory, we should be able to see this from inside the container, and
-on the filesystem of the computer running this container. We will use
-this to our advantage as we go through this practical. Unless stated
-otherwise all of the following commands should be executed in the
-terminal running the Docker container.
 
 |image2|\  Generate a directory of the fastqc results
 
-.. code-block:: bash
-
-    cd /opt/data
     mkdir fastqc_results
     fastqc oral_human_example_1_splitaa.fastq.gz
     fastqc oral_human_example_2_splitaa.fastq.gz
-    mv /opt/data/*.zip /opt/data/fastqc_results
-    mv /opt/data/*.html /opt/data/fastqc_results
+    mv $DATADIR/*.zip $DATADIR/fastqc_results
+    mv $DATADIR/*.html $DATADIR/fastqc_results
 
-|image2|\  Now on your **local** computer, go to the browser, and
-``File -> Open File``. Use the file navigator to select the following file
+|image2|\  Now on your computer on the left hand bar, select the folder icon called 'Files'
+Navigate to Home --> Data --> Quality --> files --> fastqc_results
 
-    /home/training/Data/Quality/files/fastqc_results/oral_human_example_1_splitaa_fastqc.html
+    Click on file 'oral_human_example_1_splitaa_fastqc.html' which should open in the browser
 
 |image4|\
 
@@ -120,7 +119,7 @@ Here we will demonstrate the use of this tool
 
 .. code-block:: bash
 
-    cd /opt/data
+    cd $DATADIR
     mkdir multiqc_results
     multiqc fastqc_results -o multiqc_results
 
@@ -128,11 +127,10 @@ In this case, we provide the folder containing the fastqc results to
 multiqc and the -o allows us to set the output directory for this
 summarised report.
 
-|image2|\  Now on your **local** computer, open the summary report from
-MultiQC. To do so, go to your browser, and use ``File -> Open File``. Use the
-file navigator to select the following file
+|image2|\  Now on your computer on the left hand bar, select the folder icon called 'Files'
+Navigate to Home --> Data --> Quality --> files --> multiqc_results
 
-  /home/training/Data/Quality/files/multiqc_results/multiqc_report.html
+  Click on file 'multiqc_report.html' which should open in the browser
 
 |image6|\
 
@@ -159,7 +157,7 @@ PhiX (a common spike in) and just chromosome 10 from human.  
 
 .. code-block:: bash
 
-    cd /opt/data/decontamination
+    cd $DATADIR/decontamination
 
 For the next step we need one file, so we want to merge the two
 different fasta files. This is simply done using the command line tool
@@ -192,7 +190,7 @@ kneaddata allows for more flexibility in options.
 
 .. code-block:: bash
 
-    cd /opt/data/
+    cd $DATADIR
     mkdir clean
 
 We now need to uncompress the fastq files. 
@@ -202,7 +200,7 @@ We now need to uncompress the fastq files. 
     gunzip -c oral_human_example_2_splitaa.fastq.gz > oral_human_example_2_splitaa.fastq
     gunzip -c oral_human_example_1_splitaa.fastq.gz > oral_human_example_1_splitaa.fastq
     
-    kneaddata --remove-intermediate-output -t 2 --input oral_human_example_1_splitaa.fastq --input oral_human_example_2_splitaa.fastq --output /opt/data/clean --reference-db /opt/data/decontamination/GRCh38_phix.index --bowtie2-options "--very-sensitive --dovetail" --trimmomatic-options "SLIDINGWINDOW:4:20 MINLEN:50"
+    kneaddata --remove-intermediate-output -t 2 --input oral_human_example_1_splitaa.fastq --input oral_human_example_2_splitaa.fastq --output $DATADIR/clean --reference-db $DATADIR/decontamination/GRCh38_phix.index --bowtie2-options "--very-sensitive --dovetail" --trimmomatic /home/training/Data/Quality/Trimmomatic-0.39/ --bypass-trf --trimmomatic-options "SLIDINGWINDOW:4:20 MINLEN:50"
 
 |image1|\ The options above are:
 
@@ -240,18 +238,18 @@ files.  Do this within the clean directory.
 
 .. code-block:: bash
 
-    cd /opt/data/clean
+    cd $DATADIR/clean
     mkdir fastqc_final
     <you construct the commands>
-    mv /opt/data/clean/*.zip /opt/data/clean/fastqc_final
-    mv /opt/data/clean/*.html /opt/data/clean/fastqc_final
+    mv $DATADIR/clean/*.zip $DATADIR/clean/fastqc_final
+    mv $DATADIR/clean/*.html $DATADIR/clean/fastqc_final
 
 |image2|\  Also generate a multiqc report and look at the sequence
-quality historgrams. 
+quality histograms. 
 
 .. code-block:: bash
 
-    cd /opt/data/clean
+    cd $DATADIR/clean/
     mkdir multiqc_final
     <you construct the command>
 
@@ -271,8 +269,8 @@ categorised by Kneaddata, run the following command.  
 
 .. code-block:: bash
 
-    cd /opt/data
-    kneaddata_read_count_table --input /opt/data/clean --output kneaddata_read_counts.txt
+    cd $DATADIR
+    kneaddata_read_count_table --input $DATADIR/clean --output kneaddata_read_counts.txt
     less kneaddata_read_counts.txt
 
 |image3|\  What fraction of reads have been deemed to be contaminating?
@@ -300,7 +298,7 @@ be incorrectly classified as diversity.
 
 .. code-block:: bash
 
-    cd /opt/data/decontamination
+    cd $DATADIR/decontamination
     makeblastdb -in phix.fasta -input_type fasta -dbtype nucl -parse_seqids -out phix_blastDB
 
 
@@ -309,7 +307,7 @@ This assembly file contains only a subset of the contigs for the purpose of this
 
 .. code-block:: bash
 
-    cd /opt/data
+    cd $DATADIR
     gunzip -c freshwater_sediment_contigs.fa.gz > freshwater_sediment_contigs.fa
     blastn -query freshwater_sediment_contigs.fa -db decontamination/phix_blastDB -task megablast -word_size 28 -best_hit_overhang 0.1 -best_hit_score_edge 0.1 -dust yes -evalue 0.0001 -min_raw_gapped_score 100 -penalty -5 -soft_masking true -window_size 100 -outfmt 6 -out freshwater_blast_out.txt
 
@@ -341,7 +339,7 @@ This assembly file contains only a subset of the contigs for the purpose of this
 |image3|\ Are the hits significant?
 
 |image3|\ What are the lengths of the matching contigs? We would typically filter
-metagenomic contigs at a length of 500bp. Would any PhiX contamination remain even after this filter?
+metagenomic contigs at a length of 500bp. Would any PhiX contamination remain after this filter?
 
 |image1|\ Now that PhiX contamination was identified, it is important to remove these contigs from the assembly file
 before further analysis or upload to public archives.
@@ -393,13 +391,13 @@ Using what you have learned previously, construct the relevant commands. Remembe
 
 Hint: Consider other trimmomatic options from the manual
 http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf
-e.g. "ILLUMINACLIP", where /opt/data/NexteraPE-PE is a file of adapters.
+e.g. "ILLUMINACLIP", where $DATADIR/NexteraPE-PE is a file of adapters.
 
 |image2|\ Navigate to skin folder and run quality control
 
 .. code-block:: bash
 
-    cd /opt/data/skin
+    cd $DATADIR/skin
     <construct the required commands>
 
 
