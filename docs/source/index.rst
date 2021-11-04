@@ -18,7 +18,6 @@ Contents:
    :maxdepth: 2
    
    qc
-   assembly
    services
    mag
    mag-catalogues
