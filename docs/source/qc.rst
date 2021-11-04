@@ -2,31 +2,14 @@
 Quality control and filtering of the raw sequence files
 *******************************************************
 
-Running this practical locally
--------------------------------
+Preqrequisites
+----------------
 
 There are no prerequisites to run this practical for the course. All the data and tools have been downloaded and installed on the VMs.
+
 **Skip to the next section "Quality control and filtering of the raw sequence files"**
 
-To run this practical locally after the course, the files can be downloaded using the tarball from
-http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_courses/ebi_2020/quality.tar.gz
-
-The docker container has all the tools required and can be started in the following way:
-
-.. code-block:: bash
-
-   export DATADIR={path_to_downloaded_files}
-   docker run --rm -it  -e DISPLAY=$DISPLAY  -v $DATADIR:/opt/data -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e DISPLAY=unix$DISPLAY microbiomeinformatics/mgnify-ebi-2020-qc-asssembly
-
-**Ensure variable DATADIR is set. This is used to mount downloaded data into ``/opt/data`` in the docker container.**
-From here on - replace $DATADIR with /opt/data in all commands.
-
-.. note::
-   It's possible that the docker image is not available in dockerhub.
-   In that case you can build the container using the `Dockerfile <https://github.com/EBI-Metagenomics/mgnify-ebi-2020/blob/master/docs/source/data/qc-assembly/Dockerfile>`_
-
-   To build the container, download the Dockerfile and run "docker build -t microbiomeinformatics/mgnify-ebi-2020-qc-asssembly ." in the folder that contains the Dockerfile.
-
+To run this practical locally after the course: see section "Running this practical locally" at the end of this document.
 
 Quality control and filtering of the raw sequence files
 -----------------------------------------------------------------
@@ -399,6 +382,31 @@ e.g. "ILLUMINACLIP", where $DATADIR/NexteraPE-PE is a file of adapters.
 
     cd $DATADIR/skin
     <construct the required commands>
+
+
+Running this practical locally
+-------------------------------
+
+The files can be downloaded using the tarball from
+http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_courses/ebi_2020/quality.tar.gz
+
+The docker container has all the tools required and can be started in the following way:
+
+.. code-block:: bash
+
+   export DATADIR={path_to_downloaded_files}
+   docker run --rm -it  -e DISPLAY=$DISPLAY  -v $DATADIR:/opt/data -v /tmp/.X11-unix:/tmp/.X11-unix:rw -e DISPLAY=unix$DISPLAY microbiomeinformatics/mgnify-ebi-2020-qc-asssembly
+
+**Ensure variable DATADIR is set. This is used to mount downloaded data into ``/opt/data`` in the docker container.**
+You can now run through the practical, replacing $DATADIR with /opt/data in all commands.
+
+.. note::
+   It's possible that the docker image is not available in dockerhub.
+   In that case you can build the container using the `Dockerfile <https://github.com/EBI-Metagenomics/mgnify-ebi-2020/blob/master/docs/source/data/qc-assembly/Dockerfile>`_
+
+   To build the container, download the Dockerfile and run "docker build -t microbiomeinformatics/mgnify-ebi-2020-qc-asssembly ." in the folder that contains the Dockerfile.
+
+
 
 
 .. |image1| image:: media/info.png
