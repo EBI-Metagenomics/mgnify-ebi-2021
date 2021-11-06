@@ -19,6 +19,7 @@ Contents:
    
    qc
    services
+   assembly
    mag
    mag-catalogues
    license
