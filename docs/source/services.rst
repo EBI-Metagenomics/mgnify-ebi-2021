@@ -53,8 +53,7 @@ Now we will look at some assembly data that has been analysed by MGnify.
 
 |question| How many assemblies are included in this study?
 
-|action| Click on the 2nd analysis link in the list **MGYA00510849**. You could alternatively search for this accession using the text search options. Have a look at the information within the **Quality control** tab.
-
+|action| Now, search for the analysis **MGYA00510849**. You can use the text search to find this accession. Have a look at the information within the **Quality control** tab.
 
 |question| How many contigs are included in this analysis?
 
