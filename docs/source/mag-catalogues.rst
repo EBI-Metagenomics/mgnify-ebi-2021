@@ -23,6 +23,19 @@ This builds on the exercises you looked at in the :ref:`services:API` practical.
 
 The practical will use a Jupyter Notebook.
 
+Do you have MAGs?
+-----------------
+
+|info| For the last few exercises, you need some MAGs.
+If you didn’t get as far as making your own MAGs in the :ref:`mag:MAG Generation` exercises,
+you can copy some we made earlier with this command in a Terminal:
+
+.. code-block:: bash
+
+    cp -r /media/penelopeprime/Metagenomics-Nov21/Day4/day-4-example-mag-bins/* ~/mags
+
+If you DID make your own, copy them to :code:`~/mags`.
+
 .. include:: partials/jupyter.rst
 
 Today's Notebook is "Day 4".
