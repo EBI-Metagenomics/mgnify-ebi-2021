@@ -147,6 +147,7 @@ Now run CheckM with the following command:
 
 .. code-block:: bash
 
+    cd /opt/data/assemblies
     checkm lineage_wf -x fa contigs.fasta.metabat-bins2000 checkm_output --tab_table -f MAGs_checkm.tab --reduced_tree -t 4
 
 Due to memory constraints (< 40 GB), we have added the option
