@@ -134,6 +134,8 @@ and **strain heterogeneity** of the predicted genome. 
 
 .. code-block:: bash
 
+    cd /opt/data
+    tar -xf checkm_data_2015_01_16.tar.gz -C /opt/data/checkm_data
     checkm data setRoot /opt/data/checkm_data
 
 This program has some handy tools not only for quality control, but also
