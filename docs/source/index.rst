@@ -1,24 +1,21 @@
 .. include:: partials/substitutions.rst
 
-EBI - Metagenomics bioinformatics (Virtual) - 2021
-==================================================
+EBI / SymbNET: from metagenomics to metabolic interactions
+==========================================================
 
-These are the materials that will be used for the "Metagenomics bioinformatics (Virtual)" workshop.
+These are the materials that will be used for the "SymbNET: from metagenomics to metabolic interactions" workshop.
+(Note that some sessions do not have any documentation here, though. Instructions for these will be provided during the course.)
 
-Overview
-^^^^^^^^
+The course
+^^^^^^^^^^
 
-Gain knowledge of the tools, processes and analysis approaches used in the field of metagenomics.
-
-This course will cover the metagenomics data analysis workflow from the point of newly generated sequence data. Participants will explore the use of publicly available resources and tools to manage, share, analyse and interpret metagenomics data. The content will include issues of data quality control and how to submit to public repositories. While sessions will detail marker-gene and whole-genome shotgun (WGS) approaches; the primary focus will be on assembly-based approaches. Discussions will also explore considerations when assembling genome data, the analysis that can be carried out by MGnify on such datasets, and what downstream analysis options and tools are available
+For full course information, see: `the course website <https://www.ebi.ac.uk/training/events/symbnet-2022/>`_
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
    
-   qc
-   services
    assembly
    mag
    mag-catalogues

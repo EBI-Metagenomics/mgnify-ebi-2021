@@ -16,10 +16,10 @@ In the presentation we will cover:
 MAG Catalogues hands-on exercises
 #################################
 
-These exercises will again use the `API <https://en.wikipedia.org/wiki/API>`_ ("Application programming interface"),
+These exercises will use MGnify's `API <https://en.wikipedia.org/wiki/API>`_ ("Application programming interface"),
 showing how your scripts (e.g. Python or R) can talk to the MGnify database.
 
-This builds on the exercises you looked at in the :ref:`services:API` practical.
+In partcicular, we'll be using the API Endpoints (features) associated with viewing and searching MAG Catalogues.
 
 The practical will use a Jupyter Notebook.
 
