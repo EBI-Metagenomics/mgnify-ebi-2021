@@ -117,6 +117,8 @@ grouped into a multi-fasta file with a name structure of
 
 |image4|\  How many sequences are in each bin?
 
+|image4|\  What does each bin represent?
+
 Obviously, not all bins will have the same level of accuracy since some
 might represent a very small fraction of a potential species present in
 your dataset. To further assess the quality of the bins we will use
