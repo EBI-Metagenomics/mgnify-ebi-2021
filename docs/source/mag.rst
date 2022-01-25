@@ -72,7 +72,7 @@ repeat the process, you would run the following commands:
 
     # reformat the file with samtools:
     samtools view -Sbu input.fastq.sam > junk 
-    samtools sort junk input.fastq.sam
+    samtools sort -o input.fastq.sam.bam junk
 
 We should now have the files we need for the rest of the process – the
 assemblies themselves (*contigs.fasta*) and a file from which we can
