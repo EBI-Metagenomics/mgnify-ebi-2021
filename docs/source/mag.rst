@@ -214,6 +214,7 @@ In order to open **FigTree** open a new terminal window (without docker) and typ
 |image3|\  Open the **renamed.tree** file with **FigTree** (**File -> Open**) and then
 select from the toolbar **File -> Export Trees**. In the **Tree file
 format** select **Newick** and export the file as **renamed.nwk** (or choose a name you will recognise if you plan to use the shared account described below).
+**Note**: if you have trouble with this step, proceed with this tutorial and use our example tree that has been pre-loaded into iTOL. It is the same tree as the one you just produced.
 
 |image3|\  To use **iTOL** you will need a user account. For the
 purpose of this tutorial we have already created one for you with an
