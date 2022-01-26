@@ -32,10 +32,10 @@ you can copy some we made earlier with this command in a Terminal:
 
 .. code-block:: bash
 
-    cp -r /media/penelopeprime/Metagenomics-Nov21/Day4/day-4-example-mag-bins/* ~/mags
+    cp -r /media/penelopeprime/Metagenomics-Feb22/Day3/example-mag-bins/* ~/mags
 
 If you DID make your own, copy them to :code:`~/mags`.
 
 .. include:: partials/jupyter.rst
 
-Today's Notebook is "Day 4".
+Today's Notebook is "Day 3".
