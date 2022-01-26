@@ -249,7 +249,20 @@ blank correspond to the **target genomes** we placed in the tree.
 Highlighting each tip of the phylogeny will let you see the whole
 taxon/sample name. Feel free to play around with the plot.
 
-|image4|\  Does the CheckM taxonomic classification make sense? What about the unknowns? What is their most likely taxon?
+You can also use the iTOL search function to find each bin that we added to the tree:
+
+   **1)** In the upper left portion of the screen click on the 
+   magnifying glass icon that has the letters Aa in it. A search
+   window will pop up.
+
+   **2)** In the search window type "**bin.**" (without quotes) and click on the magnifying
+   glass to search.
+   
+   **3)** In the list of node names that will appear, click on each node 
+   name to see where it is in the tree.
+   
+
+|image4|\  Does the CheckM taxonomic classification make sense? 
 
 .. |image1| image:: media/info.png
    :width: 0.26667in
