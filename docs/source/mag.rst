@@ -72,7 +72,7 @@ repeat the process, you would run the following commands:
     wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR011/ERR011322/ERR011322_2.fastq.gz
     
     # map the original reads to the contigs:
-    bwa mem contigs.fasta ERR011322_1.fastq ERR011322_2.fastq > input.fastq.sam
+    bwa mem contigs.fasta ERR011322_1.fastq.gz ERR011322_2.fastq.gz > input.fastq.sam
 
     # reformat the file with samtools:
     samtools view -Sbu input.fastq.sam > junk 
