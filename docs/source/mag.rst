@@ -13,7 +13,7 @@ For this tutorial you will need to first start the docker container by running:
 
 .. code-block:: bash
 
-    sudo docker run --rm -it -v /home/training/Data/Binning:/opt/data microbiomeinformatics/mgnify-ebi-2020-binning
+    sudo docker run --rm -it -v /home/training/Binning:/opt/data microbiomeinformatics/mgnify-ebi-2020-binning
 
 
 .. note::
