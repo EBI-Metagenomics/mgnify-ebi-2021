@@ -66,7 +66,11 @@ repeat the process, you would run the following commands:
     
     # index the contigs file that was produced by metaSPAdes:
     bwa index contigs.fasta
-
+    
+    # fetch the reads from ENA
+    wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR011/ERR011322/ERR011322_1.fastq.gz
+    wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR011/ERR011322/ERR011322_2.fastq.gz
+    
     # map the original reads to the contigs:
     bwa mem contigs.fasta ERR011322_1.fastq ERR011322_2.fastq > input.fastq.sam
 
