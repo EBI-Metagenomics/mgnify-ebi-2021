@@ -36,16 +36,23 @@ and the use of MEGAHIT for performing co-assembly.
 
 .. code-block:: bash
 
-    cd /home/training/Data/Assembly/files
+    cd /home/training/Assembly/
+
+Also we need to activate the conda enviroment we created earlier:
+
+.. code-block:: bash
+
+    conda activate assembly
+
 
 |image1|\ To run metaspades you would execute the following commands (but don't run it now!): 
 
 .. code-block:: bash
 
     mkdir assembly
-    metaspades.py -t 4 --only-assembler -m 10 -1 reads/oral_human_example_1_splitaa_kneaddata_paired_1.fastq -2 reads/oral_human_example_1_splitaa_kneaddata_paired_2.fastq -o assembly
+    metaspades.py -t 4 --only-assembler -m 10 -1 oral_human_example_1_splitaa.fastq -2 oral_human_example_2_splitaa.fastq -o spades_out
 
-|image2|\ Since the assembly process would take ~1h we are just going to analyse the output present in assembly.bak. Let's look at the contigs.fasta file.  
+|image2|\ Since the assembly process would take ~1h we are just going to analyse the output present in spades_out. Let's look at the contigs.fasta file.  
 
 For this, take the first 40 lines of the sequence and perform a blast search
 at NCBI (https://blast.ncbi.nlm.nih.gov/Blast.cgi, choose
@@ -55,7 +62,7 @@ perform the following:
 
 .. code-block:: bash
 
-    head -41 assembly.bak/contigs.fasta
+    head -41 spades_out/contigs.fasta
 
 |image8|\
 
@@ -67,7 +74,7 @@ result at all?
 
 .. code-block:: bash
 
-    assembly_stats assembly.bak/scaffolds.fasta
+    assembly_stats spades_out/scaffolds.fasta
 
 |image1|\ This will output two simple tables in JSON format, but it is
 fairly simple to read. There is a section that corresponds to the
@@ -107,7 +114,7 @@ In the the Bandage GUI perform the following
 
     Select File -> Load graph
 
-    Navigate to Home -> training -> Data -> Assembly -> files -> assembly.bak and open the file assembly_graph_after_simplification.gfa
+    Navigate to Home -> training -> Data -> Assembly -> files -> spades_out and open the file assembly_graph_after_simplification.gfa
 
 Once loaded, you need to draw the graph. To do so, under the “Graph
 drawing” panel on the left side perform the following:
@@ -136,7 +143,7 @@ To do so, go to the 'BLAST' panel on the left side of the GUI.
     
     Step 2 - Select 'build Blast database'
     
-    Step 3 - Load from FASTA file. Navigate to the genome folder: Home -> training -> Data -> Assembly -> files -> genome and select GCA_000164695.fasta
+    Step 3 - Load from FASTA file. Navigate to the genome folder: Home -> training -> Data -> Assembly -> files -> genome and select GCA_000164695.2.fasta
     
     Step 4 - Modify the BLAST filters to 95% identity
     
@@ -156,36 +163,48 @@ You should then see something like this:
 
 |image9|\
 
+
+|image1|\ For the long-reads assembly we will use Flye:
+
+.. code-block:: bash
+    
+    flye --nano-raw nanopore_subset.fastq --out-dir flye_out --threads 4
+
+
+|image3|\  How do these assemblies differ to the one generated previously with metaSPAdes?
+
+
 |image1|\ In the following steps of this exercise, we will look at
-performing co-assembly of multiple datasets. Each should take about 15-20 min. In case you do not manage to finish these on time, the directory **coassembly.bak** contains all the expected results.
+performing co-assembly of multiple datasets. Each should take about 15-20 min. In case you do not manage to finish these on time, the directory **coassembly** contains all the expected results.
 
 |image2|\ First, we need to make sure the output directories we are going to create do not already exist (MEGAHIT cannot overwrite existing directories). Run:
 
 .. code-block:: bash
-
-    rm -rf coassembly/assembly*
+    
+    cd /home/training/Assembly/coassembly
+    rm -rf assembly*
 
 |image2|\ Then, perform the coassemblies with MEGAHIT, as follows:
 
 .. code-block:: bash
 
-    megahit -1 reads/oral_human_example_1_splitac_kneaddata_paired_1.fastq -2 reads/oral_human_example_1_splitac_kneaddata_paired_2.fastq -o  coassembly/assembly1 -t 4 --k-list 23,51,77 
+    megahit -1 sample3/sample3_R1.fastq -2 sample3/sample3_R2.fastq -o  assembly1 -t 4 --k-list 23,51,77 
 
 .. code-block:: bash
 
-    megahit -1 reads/oral_human_example_1_splitac_kneaddata_paired_1.fastq,reads/oral_human_example_1_splitab_kneaddata_paired_1.fastq  -2 reads/oral_human_example_1_splitac_kneaddata_paired_2.fastq,reads/oral_human_example_1_splitab_kneaddata_paired_2.fastq -o coassembly/assembly2 -t 4 --k-list 23,51,77 
+    megahit -1 sample3/sample3_R1.fastq,sample4/sample4_R1.fastq -2 sample3/sample3_R2.fastq,sample4/sample4_R2.fastq -o assembly2 -t 4 --k-list 23,51,77 
 
 .. code-block:: bash
 
-    megahit -1 reads/oral_human_example_1_splitab_kneaddata_paired_1.fastq,reads/oral_human_example_1_splitac_kneaddata_paired_1.fastq,reads/oral_human_example_1_splitaa_kneaddata_paired_1.fastq -2 reads/oral_human_example_1_splitab_kneaddata_paired_2.fastq,reads/oral_human_example_1_splitac_kneaddata_paired_2.fastq,reads/oral_human_example_1_splitaa_kneaddata_paired_2.fastq -o coassembly/assembly3 -t 4 --k-list 23,51,77   
+    megahit -1 sample3/sample3_R1.fastq,sample4/sample4_R1.fastq,sample5/sample5_R1.fastq -2 sample3/sample3_R2.fastq,sample4/sample4_R2.fastq,sample5/sample5_R2.fastq -o assembly3 -t 4 --k-list 23,51,77   
 
 |image2|\ You should now have three different assemblies, let us compare the results.
 
 .. code-block:: bash
 
-    assembly_stats coassembly/assembly1/final.contigs.fa
-    assembly_stats coassembly/assembly2/final.contigs.fa
-    assembly_stats coassembly/assembly3/final.contigs.fa
+    assembly_stats assembly1/final.contigs.fa
+    assembly_stats assembly2/final.contigs.fa
+    assembly_stats assembly3/final.contigs.fa
     
 |image3|\  How do these assemblies differ to the one generated previously with metaSPAdes? Which one do you think is best?
 
