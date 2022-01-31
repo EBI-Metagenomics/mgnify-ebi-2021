@@ -19,5 +19,5 @@ Contents:
    assembly
    mag
    mag-catalogues
-   license
    virify
+   license
