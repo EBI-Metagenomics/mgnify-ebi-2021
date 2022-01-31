@@ -20,3 +20,4 @@ Contents:
    mag
    mag-catalogues
    license
+   virify
