@@ -7,17 +7,17 @@ Opening the Jupyter notebook
 
 .. code-block:: bash
 
-    cd ~/mgnify-ebi-2021
+    cd ~/symbnet-2022
 
-    conda activate mgnify-ebi-2021
+    conda activate mgnify-ebi-2022
 
 |info| That should have worked, but if you got an error you’ll need to create the environment:
 
 .. code-block:: bash
 
-    conda create --n mgnify-ebi-2021 python=3.9
+    conda create --n mgnify-ebi-2022 python=3.9
 
-    conda activate mgnify-ebi-2021
+    conda activate mgnify-ebi-2022
 
     pip install -r requirements.txt
 
